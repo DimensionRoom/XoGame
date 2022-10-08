@@ -1,0 +1,17 @@
+import React from "react";
+export interface Props {
+    width?: any;
+    className?: string;
+    disable?:boolean;
+ }
+
+export default ({width,className,disable}:Props) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 34 18" shapeRendering="crispEdges" width={width} className={className}>
+    <path stroke="#369fb6" d="M2 1h30M1 2h2M31 2h2M0 3h2M32 3h2M0 4h1M33 4h1M0 5h1M33 5h1M0 6h1M33 6h1M0 7h1M33 7h1M0 8h1M33 8h1M0 9h1M33 9h1M0 10h1M33 10h1M0 11h1M33 11h1M0 12h1M33 12h1M0 13h1M33 13h1M0 14h1M33 14h1M0 15h2M32 15h2M1 16h2M31 16h2M2 17h30" />
+    <path stroke="#5fcde4" d="M3 2h28M2 3h30M1 4h3M11 4h3M20 4h2M30 4h3M1 5h3M12 5h1M21 5h1M30 5h3M1 6h3M12 6h1M21 6h1M30 6h3M1 7h3M7 7h2M12 7h1M16 7h2M21 7h3M28 7h5M1 8h3M11 8h2M16 8h2M21 8h3M28 8h5M1 9h3M11 9h2M16 9h2M21 9h3M28 9h5M1 10h3M12 10h1M16 10h2M21 10h3M28 10h5M1 11h3M7 11h2M12 11h1M16 11h2M21 11h3M28 11h5M1 12h3M12 12h1M21 12h3M28 12h5M1 13h3M12 13h1M21 13h3M28 13h5M1 14h3M11 14h3M20 14h4M28 14h5M2 15h30M3 16h28" />
+    <path stroke="#ffffff" d="M4 4h7M14 4h6M22 4h8M4 5h8M13 5h8M22 5h8M4 6h3M9 6h3M13 6h3M18 6h3M24 6h4M4 7h3M9 7h3M13 7h3M18 7h3M24 7h4M4 8h7M13 8h3M18 8h3M24 8h4M4 9h7M13 9h3M18 9h3M24 9h4M4 10h3M9 10h3M13 10h3M18 10h3M24 10h4M4 11h3M9 11h3M13 11h3M18 11h3M24 11h4M4 12h8M13 12h8M24 12h4M4 13h7M14 13h6M24 13h4" />
+    <path stroke="#1e4148" d="M7 6h2M16 6h2M22 6h2M28 6h2M7 10h2M11 13h1M13 13h1M20 13h1M4 14h7M14 14h6M24 14h4" />
+    </svg>
+  );
+};
