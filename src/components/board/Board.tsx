@@ -1,12 +1,21 @@
 import React from 'react';
-import './App.css';
+import './Board.css';
+import { Marker } from "../marker/Marker"
 
-function Board() {
-  return (
-    <>
-
-    </>
-  );
+export interface Props {
+  board?: any;
+  onClick?: any;
 }
 
-export default Board;
+export function Board({ board, onClick }:Props) {
+  return (
+    <div className="board">
+      {
+        board.map((value:any, markIdx:number) => {
+          // console.log('inboard',value,markIdx)
+          return <Marker key={`marker${markIdx}`} value={value} onClick={() => value === null && onClick(markIdx)} />;
+        })
+      }
+    </div>
+  );
+}
