@@ -8,7 +8,7 @@ const App: React.FC = () => {
       <>
         <RenderRoute />
         <div className="versionNumber">
-         Beta0.1 © 2022 by Tada Samngamthong
+         Beta 0.1 © 2022 by Tada Samngamthong
         </div>
       </>
     </BrowserRouter>

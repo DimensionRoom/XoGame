@@ -21,6 +21,8 @@ export function Game({ ...props }) {
   const [winner, setWinner] = useState(null);
   const [winLine, setWinLine] = useState<any>([]);
   const [gameOver, setGameOver] = useState(false);
+  const [scoreX,setScoreX] = useState(0);
+  const [scoreO,setScoreO] = useState(0);
 
   const handleMarkerClick = (markIdx: number) => {
     if (board[markIdx] === null) {
@@ -40,6 +42,12 @@ export function Game({ ...props }) {
         console.log('win',board[a])
         setWinLine([a, b, c])
         setWinner(board[a])
+        if(board[a] === 'X'){
+          setScoreX(scoreX+1)
+        }
+        if(board[a] === 'O'){
+          setScoreO(scoreO+1)
+        }
       }
       if (allFill) {
         setGameOver(true);
@@ -73,11 +81,15 @@ export function Game({ ...props }) {
       />
       {winner?
         <div className="row justifyContentCenter alignItemsBaseline">
-          <div className="textGap">Winner is : </div>
-          <div className={winner=='X'?'winnerX':winner=='O'?'winnerO':''}>{winner}</div>
+          <div className="textWinner textGap">Winner is : </div>
+          <div className={winner=='X'?'winnerX markWinner':winner=='O'?'winnerO  markWinner':''}>{winner}</div>
         </div>
       :null
       }
+       <div className="justifyContentCenter alignItemsBaseline">
+       <div className="textWinner textGap">Score <span className="winnerX">X</span> : {scoreX}</div>
+       <div className="textWinner textGap">Score <span className="winnerO">0</span> : {scoreO}</div>
+       </div>
     </div>
   );
 }
