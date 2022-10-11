@@ -6,16 +6,17 @@
   text-align: center;
   margin: 1px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.X-mark {
-  color: rgb(255, 70, 37);
+.X-mark.winMark{
+  background-color: #ffbcbc;
 }
-
-.O-mark {
-  color: rgb(44, 135, 255);
+.O-mark.winMark{
+  background-color: #c3ebff;
 }
 
 .mark:hover {
-  background-color: #e3e3e3
+  background-color: #e3e3e3;
 }

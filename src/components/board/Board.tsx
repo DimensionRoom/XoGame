@@ -4,17 +4,18 @@ import { Marker } from "../marker/Marker"
 
 export interface Props {
   board?: any;
+  winLine?: [];
   onClick?: any;
 }
 
-export function Board({ board, onClick }:Props) {
+export function Board({ board, winLine, onClick }:Props) {
+
   return (
     <div className="board">
       {
         board.map((value:any, markIdx:number) => {
-          // console.log('inboard',value,markIdx)
-          // return <Marker key={`marker${markIdx}`} value={value} onClick={() => value === null && onClick(markIdx)} />;
-          return <Marker key={`marker${markIdx}`} value={value} onClick={() =>  onClick(markIdx)} />;
+          const winMark = winLine?.some((mark:number) => mark === markIdx)
+          return <Marker key={`marker${markIdx}`} winMark={winMark} value={value} onClick={() =>  onClick(markIdx)} />;
         })
       }
     </div>

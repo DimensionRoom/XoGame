@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import PlayBtn from "../../assets/btn/PlayBtn";
 import PlayPressBtn from "../../assets/btn/PlayPressBtn";
-import P2PBtn from "../../assets/btn/P2PBtn";
-import P2PPressBtn from "../../assets/btn/P2PPressBtn";
+import PVPBtn from "../../assets/btn/PVPBtn";
+import PVPPressBtn from "../../assets/btn/PVPPressBtn";
 import BotBtn from "../../assets/btn/BotBtn";
 import BotPressBtn from "../../assets/btn/BotPressBtn";
 import HomeLogo from "../../assets/logo/HomeLogo";
@@ -17,8 +17,8 @@ export function Home({ ...props }) {
   //setBtn
   const [playBtnDisable, setPlayBtnDisable] = useState(false);
   const [playBtnPress, setPlayBtnPress] = useState(false);
-  const [p2pBtnDisable, setP2pBtnDisable] = useState(false);
-  const [p2pBtnPress, setP2pBtnPress] = useState(false);
+  const [pvpBtnDisable, setPvpBtnDisable] = useState(false);
+  const [pvpBtnPress, setPvpBtnPress] = useState(false);
   const [botBtnDisable, setBotBtnDisable] = useState(true);
   const [botBtnPress, setBotBtnPress] = useState(false);
   //setPlayMode
@@ -31,15 +31,15 @@ export function Home({ ...props }) {
     //เผื่อไว้ใช้ตอน V.2
   };
   const onClickSelectModeBtn = async (mode: string) => {
-    if (mode == "p2p" && !p2pBtnDisable) {
+    if (mode == "pvp" && !pvpBtnDisable) {
       if (selectedMode == "" || selectedMode == "bot") {
-        setSelectedMode("p2p");
+        setSelectedMode("pvp");
       } else {
         setSelectedMode("");
       }
     }
     if (mode == "bot" && !botBtnDisable) {
-      if (selectedMode == "" || selectedMode == "p2p") {
+      if (selectedMode == "" || selectedMode == "pvp") {
         setSelectedMode("bot");
       } else {
         setSelectedMode("");
@@ -62,22 +62,22 @@ export function Home({ ...props }) {
       <div className="row justifyContentCenter">
         <div className="item">
           <button
-            id="p2pBtn"
-            name="p2pBtn"
-            className="btn p2pBtn"
-            onMouseEnter={() => onHoverBtn(setP2pBtnPress(true), "p2pBtn")}
-            onMouseLeave={() => onLeaveBtn(setP2pBtnPress(false), "p2pBtn")}
-            onClick={() => onClickSelectModeBtn("p2p")}
+            id="pvpBtn"
+            name="pvpBtn"
+            className="btn pvpBtn"
+            onMouseEnter={() => onHoverBtn(setPvpBtnPress(true), "pvpBtn")}
+            onMouseLeave={() => onLeaveBtn(setPvpBtnPress(false), "pvpBtn")}
+            onClick={() => onClickSelectModeBtn("pvp")}
           >
-            {p2pBtnPress && !p2pBtnDisable && selectedMode == "" ? (
-              <P2PPressBtn className="p2pBtnImg press" />
+            {pvpBtnPress && !pvpBtnDisable && selectedMode == "" ? (
+              <PVPPressBtn className="pvpBtnImg press" />
             ) : (
-              <P2PBtn
+              <PVPBtn
                 selected={
-                  selectedMode != "" && selectedMode == "p2p" ? true : false
+                  selectedMode != "" && selectedMode == "pvp" ? true : false
                 }
-                disable={p2pBtnDisable}
-                className="p2pBtnImg"
+                disable={pvpBtnDisable}
+                className="pvpBtnImg"
               />
             )}
           </button>

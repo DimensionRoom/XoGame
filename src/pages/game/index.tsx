@@ -19,6 +19,7 @@ export function Game({ ...props }) {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [playerX, setPlayerX] = React.useState(true);
   const [winner, setWinner] = useState(null);
+  const [winLine, setWinLine] = useState<any>([]);
   const [gameOver, setGameOver] = useState(false);
 
   const handleMarkerClick = (markIdx: number) => {
@@ -28,45 +29,53 @@ export function Game({ ...props }) {
       setPlayerX(!playerX);
     }
     checkWinner(board);
-    console.log("markIdx", markIdx, !playerX, board);
   };
 
   const checkWinner = (board: any) => {
     for (let i = 0; i < WIN_CONDITIONS.length; i++) {
       const [a, b, c] = WIN_CONDITIONS[i];
-      const allFill = !board.some((mark:any) => mark === null)
+      const allFill = !board.some((mark:number) => mark === null)
       if (board[a] && board[a] === board[b] && board[b] === board[c]) {
         setGameOver(true);
         console.log('win',board[a])
+        setWinLine([a, b, c])
         setWinner(board[a])
       }
       if (allFill) {
         setGameOver(true);
-        console.log('DD',allFill)
       }
     }
   };
 
   useEffect(() => {
-    console.log("gameOver", gameOver,"winner is",winner);
+    // console.log("gameOver", gameOver,"winner is",winner);
   }, [gameOver]);
 
 
   const resetBoard = () => {
+    setPlayerX(true)
     setGameOver(false);
-    setWinner(null)
+    setWinLine([]);
+    setWinner(null);
     setBoard(Array(9).fill(null));
   };
 
   return (
     <div className="gameContainer">
-      <div style={{ color: "red" }}>Game Mode "{gamemode}"</div>
+      <div className="mode row justifyContentCenter alignItemsBaseline">
+        <div className="textMode textGap">Game Mode : </div>
+        <div className="modeSelect">{gamemode}</div>
+      </div>
       <Board
         board={board}
+        winLine={winLine}
         onClick={gameOver ? resetBoard : handleMarkerClick}
       />
       {winner?
-       <div style={{ color: "red" }}>Winner is "{winner}"</div>
+        <div className="row justifyContentCenter alignItemsBaseline">
+          <div className="textGap">Winner is : </div>
+          <div className={winner=='X'?'winnerX':winner=='O'?'winnerO':''}>{winner}</div>
+        </div>
       :null
       }
     </div>
