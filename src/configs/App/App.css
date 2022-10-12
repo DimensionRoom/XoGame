@@ -5,7 +5,6 @@
   box-sizing: border-box;
   font-family: 'Bit Style'
 }
-
 body {
   margin: 0;
   background-color: #141414;
@@ -14,8 +13,6 @@ body {
   font-family:'Bit Style';
   src: local('Bit Style'), url(../../assets/font/edit-undo.brk.ttf) format('truetype');
 }
-
-
 .versionNumber{
   position: fixed;
   color: #fff;

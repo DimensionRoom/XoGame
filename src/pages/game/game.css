@@ -1,66 +1,120 @@
+.gameMenu {
+  height: auto;
+}
 .gameContainer {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
 }
-
+.btn {
+  margin: 0 5px 0 0;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0);
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+.btn:focus {
+  border: 1px solid white;
+}
+.btn.homeBtn {
+  width: calc(10px * var(--pixel-size));
+  image-rendering: pixelated;
+}
+.btn.homeBtn:hover {
+  transform: scale(1.2);
+  image-rendering: pixelated;
+}
+.btn.soundBtn {
+  width: calc(10px * var(--pixel-size));
+  image-rendering: pixelated;
+}
+.btn.soundBtn:hover {
+  transform: scale(1.2);
+  image-rendering: pixelated;
+}
+.btn.resetBtn {
+  width: calc(10px * var(--pixel-size));
+  image-rendering: pixelated;
+}
+.btn.resetBtn:hover {
+  transform: scale(1.2);
+  image-rendering: pixelated;
+}
 .row {
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: 10px 0px;
+  margin: 5px 0px;
 }
-
+.gameFooter {
+  min-height: 60px;
+}
 .textGap {
   margin-right: 10px;
 }
-
 .justifyContentCenter {
   justify-content: center;
 }
-.alignItemsBaseline{
+.justifyContentEnd {
+  justify-content: end;
+}
+.justifyContentAround {
+  justify-content: space-around;
+}
+.justifyContentEvenly {
+  justify-content: space-evenly;
+}
+.alignItemsBaseline {
   align-items: baseline;
 }
-
-.textMode{
+.alignItemsCenter {
+  align-items: center;
+}
+.textMode {
   font-size: 3rem;
   -webkit-font-smoothing: none;
 }
-.textWinner{
+.textWinner {
   font-size: 3rem;
   -webkit-font-smoothing: none;
 }
-.markWinner{
+.textScore {
+  font-size: 3rem;
+  -webkit-font-smoothing: none;
+  width: 300px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.markWinner {
   font-size: 4rem;
   -webkit-font-smoothing: none;
 }
-
 .resultText {
   font-size: 3rem;
   -webkit-font-smoothing: none;
 }
-
-.winnerX{
+.winnerX {
   color: #d8294e;
 }
-.winnerO{
+.winnerO {
   color: #71bbff;
 }
-.draw{
+.draw {
   color: #7a7a7a;
 }
-
-.modeSelect{
+.modeSelect {
   font-size: 5rem;
   animation: wiggle 3s linear infinite;
   -webkit-font-smoothing: none;
 }
-
 @keyframes wiggle {
-  0%, 7% {
+  0%,
+  7% {
     transform: rotateZ(0);
   }
   15% {
@@ -78,8 +132,8 @@
   35% {
     transform: rotateZ(-4deg);
   }
-  40%, 100% {
+  40%,
+  100% {
     transform: rotateZ(0);
   }
 }
-

@@ -9,6 +9,7 @@ import BotBtn from "../../assets/btn/BotBtn";
 import BotPressBtn from "../../assets/btn/BotPressBtn";
 import HomeLogo from "../../assets/logo/HomeLogo";
 
+
 import "./home.css";
 
 export function Home({ ...props }) {

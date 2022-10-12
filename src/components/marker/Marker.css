@@ -9,14 +9,12 @@
   display: flex;
   align-items: center;
 }
-
 .X-mark.winMark{
   background-color: #ffbcbc;
 }
 .O-mark.winMark{
   background-color: #c3ebff;
 }
-
 .mark:hover {
   background-color: #e3e3e3;
 }

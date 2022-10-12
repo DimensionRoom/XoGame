@@ -11,7 +11,7 @@ export interface Props {
 export function Board({ board, winLine, onClick }:Props) {
 
   return (
-    <div className="board">
+    <div className="board" id="board">
       {
         board.map((value:any, markIdx:number) => {
           const winMark = winLine?.some((mark:number) => mark === markIdx)

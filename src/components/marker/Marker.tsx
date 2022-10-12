@@ -9,7 +9,6 @@ export interface Props {
 }
 
 export function Marker({ value, winMark , onClick }: Props) {
-  console.log('winBtn',winMark)
   return (
     <>
       <button

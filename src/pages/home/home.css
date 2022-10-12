@@ -12,8 +12,6 @@
   width: 100%;
   margin: 10px 0px;
 }
-
-
 .justifyContentCenter {
   justify-content: center;
 }
@@ -33,12 +31,10 @@
 .btn:focus {
   border: 1px solid white;
 }
-
 .btn img {
   width: calc(50px * var(--pixel-size));
   image-rendering: pixelated;
 }
-
 .playBtnImg {
   width: calc(50px * var(--pixel-size));
 }
@@ -48,25 +44,20 @@
 .botBtnImg {
   width: calc(30px * var(--pixel-size));
 }
-
 .btn.pvpBtn img {
   width: calc(40px * var(--pixel-size));
   image-rendering: pixelated;
 }
-
 .btn.botBtn img {
   width: calc(40px * var(--pixel-size));
   image-rendering: pixelated;
 }
-
 .mainLogo {
   width: calc(80px * var(--pixel-size));
 }
-
 .logoContainer {
   animation: inScreen 2.5s ease-out 0s;
 }
-
 @keyframes inScreen {
   0% {
     transform: translateY(-50%) translateX(0) scale(0.25);

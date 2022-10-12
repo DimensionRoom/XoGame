@@ -7,7 +7,7 @@ export interface Props {
 
 export default ({width,className}:Props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 26 10" shape-rendering="crispEdges" width={width} className={className}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 26 10" shapeRendering="crispEdges" width={width} className={className}>
     <path stroke="#ad4242" d="M10 1h2M10 2h1M10 3h1M11 5h1M11 6h1M12 7h3M13 8h1" />
     <path stroke="#ac3232" d="M15 1h2M14 2h4M12 3h5M15 4h1M15 5h1" />
     <path stroke="#777777" d="M20 1h2M19 2h2M19 3h1M19 4h1M19 5h1M19 6h1M19 7h2" />
