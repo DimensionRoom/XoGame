@@ -33,15 +33,29 @@ export function Game({ ...props }) {
   const [audio,setAudio] = useState(new Audio(bgSound));
   const [playingMusic, setPlayingMusic] = useState(false);
   const soundBtnRef = useRef<any>(null);
+  const [markTemp,setMarkTemp] = useState<any>([])
 
   const handleMarkerClick = (markIdx: number) => {
     if (board[markIdx] === null) {
       board[markIdx] = playerX ? "X" : "O";
       setBoard(board);
       setPlayerX(!playerX);
+      // handleBot()
     }
     checkWinner(board);
   };
+
+  const handleBot = () =>{
+    const item = [0,1,2,3,4,5,6,7,8]
+    const random = item[Math.floor((Math.random()*item.length))];
+
+    if (!markTemp.includes(random)) {
+      setMarkTemp([...markTemp, random])
+    } else {
+      
+    }
+    console.log('bot',random,markTemp)
+  }
 
   const toggleMusic = () => {
     if(!playingMusic) {

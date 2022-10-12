@@ -8,9 +8,15 @@ Just **npm start** for START GAME!!
 - Press **Play Button** for start.
 - Click on the Board for marker 'X' or 'O' until have winner.
 
-## Rule
+## Rules
 - Who can line up 'X' or 'O' marker will be WINNER!!.
 - If don't have winner Board will reset new round.
+- When who have winning summary score will show on the side of board.
+
+## Tools
+- Home button press for go back to home page.
+- Music button press for close or open bg music (recommend open for excited).
+- Reset button press for reset everything in current game to new.
 
 
 # คู่มือการเล่น (ภาษาไทย)
@@ -25,3 +31,9 @@ Just **npm start** for START GAME!!
 ## กฏการเล่น
 - ฝั่งไหนเรียงเครื่องหมาย 'X' หรือ 'O' ได้ครบตามแนวก่อนจะเป็นผู้ชนะ
 - ถ้าไม่มีผู้ชนะกระดานจะถูกล้างเพื่อเริ่มรอบใหม่
+- เมื่อฝั่งไหนชนะมีผลรวมบอกทางด้านซ้ายและขวาของกระดาน
+
+## เครื่องมือ
+- ปุ่ม Home กดเพื่อย้อนกลับไปหน้าแรก
+- ปุ่ม Music กดเพื่อเปิดปิดเสียงเพลงประกอบ (แนะนำเปิดเพื่อความเร้าใจ)
+- ปุ่ม Reset กดเพื่อล้างค่าการเล่นทั้งหมด
