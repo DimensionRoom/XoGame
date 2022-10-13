@@ -35,6 +35,12 @@
   width: calc(50px * var(--pixel-size));
   image-rendering: pixelated;
 }
+.btn.modeBtn{
+  margin: 0 15px;
+}
+.btn.playBtn{
+  margin: 0;
+}
 .playBtnImg {
   width: calc(50px * var(--pixel-size));
 }

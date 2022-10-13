@@ -18,6 +18,9 @@ Just **npm start** for START GAME!!
 - Music button press for close or open bg music (recommend open for excited).
 - Reset button press for reset everything in current game to new.
 
+## Next Plans
+- Do choose player
+- Do Avatar and fight Params
 
 # คู่มือการเล่น (ภาษาไทย)
 ## วิธีการเริ่มเกมส์
@@ -37,3 +40,7 @@ Just **npm start** for START GAME!!
 - ปุ่ม Home กดเพื่อย้อนกลับไปหน้าแรก
 - ปุ่ม Music กดเพื่อเปิดปิดเสียงเพลงประกอบ (แนะนำเปิดเพื่อความเร้าใจ)
 - ปุ่ม Reset กดเพื่อล้างค่าการเล่นทั้งหมด
+
+## แผนการพัฒนา
+- ทำเลือกฝ่ายได้
+- ทำตัวละครแทนแต่ละฝ่ายและมีค่าพลัง

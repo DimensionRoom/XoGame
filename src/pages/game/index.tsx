@@ -4,7 +4,7 @@ import { Board } from "../../components/board/Board";
 import HomeMini from "../../assets/btn/HomeMini";
 import ResetMini from "../../assets/btn/ResetMini";
 import SoundMini from "../../assets/btn/SoundMini";
-import bgSound from "../../assets/sound/EnterSandman8Bit.mp3"
+import bgSound from "../../assets/sound/EnterSandman8Bit.mp3";
 
 import { useNavigate } from "react-router-dom";
 
@@ -30,42 +30,44 @@ export function Game({ ...props }) {
   const [gameOver, setGameOver] = useState(false);
   const [scoreX, setScoreX] = useState(0);
   const [scoreO, setScoreO] = useState(0);
-  const [audio,setAudio] = useState(new Audio(bgSound));
+  const [audio, setAudio] = useState(new Audio(bgSound));
   const [playingMusic, setPlayingMusic] = useState(false);
   const soundBtnRef = useRef<any>(null);
-  const [markTemp,setMarkTemp] = useState<any>([])
+  const [markTemp, setMarkTemp] = useState<any>([]);
 
   const handleMarkerClick = (markIdx: number) => {
     if (board[markIdx] === null) {
       board[markIdx] = playerX ? "X" : "O";
       setBoard(board);
       setPlayerX(!playerX);
-      // handleBot()
     }
     checkWinner(board);
   };
 
-  const handleBot = () =>{
-    const item = [0,1,2,3,4,5,6,7,8]
-    const random = item[Math.floor((Math.random()*item.length))];
-
-    if (!markTemp.includes(random)) {
-      setMarkTemp([...markTemp, random])
-    } else {
-      
+  const botLogic = () => {
+    const playerMark = [];
+    let unMark = [];
+    for (let index = 0; index < board.length; index++) {
+      if (board[index]) {
+        playerMark.push(index);
+      } else {
+        unMark.push(index);
+      }
     }
-    console.log('bot',random,markTemp)
-  }
+    let botMark = Math.floor(Math.random() * unMark.length);
+    console.log(unMark[botMark], playerMark, unMark, "botMark");
+    handleMarkerClick(unMark[botMark]);
+  };
 
   const toggleMusic = () => {
-    if(!playingMusic) {
-      setPlayingMusic(true)
+    if (!playingMusic) {
+      setPlayingMusic(true);
       audio.loop = true;
-      audio.play() 
-    }else{
-      setPlayingMusic(false)
+      audio.play();
+    } else {
+      setPlayingMusic(false);
       audio.loop = false;
-      audio.pause()
+      audio.pause();
     }
   };
 
@@ -91,7 +93,6 @@ export function Game({ ...props }) {
     }
   };
 
-  
   const resetBoard = () => {
     setPlayerX(true);
     setGameOver(false);
@@ -107,8 +108,8 @@ export function Game({ ...props }) {
   };
 
   const onClickHomeBtn = async () => {
-    setPlayingMusic(false)
-    audio.pause()
+    setPlayingMusic(false);
+    audio.pause();
     navigate(`/`);
   };
 
@@ -116,11 +117,19 @@ export function Game({ ...props }) {
     // console.log("gameOver", gameOver,"winner is",winner);
   }, [gameOver]);
 
+  useEffect(() => {
+    if (gamemode !== "bot") return;
+    if (!playerX) {
+      botLogic();
+    } else {
+    }
+  }, [playerX]);
+
   // useEffect(() => {
   //   // Auto Play Bg Music แต่ติด Permission Google ห้ามเปิดเพลงตอนเข้า
   //   soundBtnRef.current.click()
   // }, []);
-  
+
   return (
     <>
       <div className="gameMenu">
@@ -140,7 +149,7 @@ export function Game({ ...props }) {
             ref={soundBtnRef}
             onClick={() => toggleMusic()}
           >
-            <SoundMini active={playingMusic}/>
+            <SoundMini active={playingMusic} />
           </button>
           <button
             id="homeBtn"

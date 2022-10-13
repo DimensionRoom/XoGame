@@ -9,7 +9,6 @@ import BotBtn from "../../assets/btn/BotBtn";
 import BotPressBtn from "../../assets/btn/BotPressBtn";
 import HomeLogo from "../../assets/logo/HomeLogo";
 
-
 import "./home.css";
 
 export function Home({ ...props }) {
@@ -20,7 +19,7 @@ export function Home({ ...props }) {
   const [playBtnPress, setPlayBtnPress] = useState(false);
   const [pvpBtnDisable, setPvpBtnDisable] = useState(false);
   const [pvpBtnPress, setPvpBtnPress] = useState(false);
-  const [botBtnDisable, setBotBtnDisable] = useState(true);
+  const [botBtnDisable, setBotBtnDisable] = useState(false);
   const [botBtnPress, setBotBtnPress] = useState(false);
   //setPlayMode
   const [selectedMode, setSelectedMode] = useState("");
@@ -65,7 +64,7 @@ export function Home({ ...props }) {
           <button
             id="pvpBtn"
             name="pvpBtn"
-            className="btn pvpBtn"
+            className="btn pvpBtn modeBtn"
             onMouseEnter={() => onHoverBtn(setPvpBtnPress(true), "pvpBtn")}
             onMouseLeave={() => onLeaveBtn(setPvpBtnPress(false), "pvpBtn")}
             onClick={() => onClickSelectModeBtn("pvp")}
@@ -87,7 +86,7 @@ export function Home({ ...props }) {
           <button
             id="botBtn"
             name="botBtn"
-            className="btn botBtn"
+            className="btn botBtn modeBtn"
             onMouseEnter={() => onHoverBtn(setBotBtnPress(true), "botBtn")}
             onMouseLeave={() => onLeaveBtn(setBotBtnPress(false), "botBtn")}
             onClick={() => onClickSelectModeBtn("bot")}
