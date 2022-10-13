@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,redirect  } from "react-router-dom";
 
 import PlayBtn from "../../assets/btn/PlayBtn";
 import PlayPressBtn from "../../assets/btn/PlayPressBtn";
@@ -8,6 +8,7 @@ import PVPPressBtn from "../../assets/btn/PVPPressBtn";
 import BotBtn from "../../assets/btn/BotBtn";
 import BotPressBtn from "../../assets/btn/BotPressBtn";
 import HomeLogo from "../../assets/logo/HomeLogo";
+import FaqMini from "../../assets/btn/FaqMini";
 
 import "./home.css";
 
@@ -52,8 +53,25 @@ export function Home({ ...props }) {
     navigate(`/game/${selectedMode}`);
   };
 
+  const onClickFaqBtn = async () => {
+    window.open('https://github.com/DimensionRoom/XoGame/blob/dev/README.md'); 
+  }
+
   return (
-    <div className="appContainer">
+    <>
+    <div className="gameMenu">
+        <div className="row justifyContentEnd alignItemsBaseline">      
+          <button
+            id="homeBtn"
+            name="homeBtn"
+            className="btn homeBtn"
+            onClick={() => onClickFaqBtn()}
+          >
+            <FaqMini />
+          </button>
+        </div>
+      </div>
+      <div className="appContainer">
       <div className="row justifyContentCenter">
         <div className="item logoContainer">
           <HomeLogo className="mainLogo" />
@@ -127,5 +145,6 @@ export function Home({ ...props }) {
         </div>
       </div>
     </div>
+    </>
   );
 }
