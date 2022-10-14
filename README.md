@@ -57,7 +57,7 @@ Just **npm start** for START GAME!!
 ###
 
 <div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=f.f&left_color=darkcyan&right_color=darkslategrey"  />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=f.f&left_color=darkcyan&right_color=lightslategray"  />
 </div>
 
 ###
