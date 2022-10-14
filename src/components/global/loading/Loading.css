@@ -1,0 +1,24 @@
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.loadingBar {
+  width: calc(10px * var(--pixel-size));
+  image-rendering: pixelated;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 10px 0px;
+}
+.justifyContentCenter {
+  justify-content: center;
+}
+.loadingBar {
+  width: calc(80px * var(--pixel-size));
+}

@@ -9,6 +9,7 @@ import bgSound from "../../assets/sound/EnterSandman8Bit.mp3";
 import { useNavigate } from "react-router-dom";
 
 import "./game.css";
+import Loading from "../../components/global/loading/Loading";
 
 export function Game({ ...props }) {
   const navigate = useNavigate();
@@ -34,6 +35,9 @@ export function Game({ ...props }) {
   const [playingMusic, setPlayingMusic] = useState(false);
   const soundBtnRef = useRef<any>(null);
   const [markTemp, setMarkTemp] = useState<any>([]);
+  const [loadingStatus, setLoadingStatus] = useState(true);
+  const [loadingCurrent, setLoadingCurrent] = useState(0);
+  const [loadingMax, setLoadingMax] = useState(100);
 
   const handleMarkerClick = (markIdx: number) => {
     if (board[markIdx] === null) {
@@ -130,75 +134,89 @@ export function Game({ ...props }) {
   //   soundBtnRef.current.click()
   // }, []);
 
+  useEffect(() => {
+    if (loadingCurrent != loadingMax && loadingStatus) {
+      setTimeout(() => setLoadingCurrent(loadingCurrent + 25), 500);
+    } else {
+      setTimeout(() => setLoadingStatus(false), 500);    
+    }
+  }, [loadingCurrent]);
+
   return (
     <>
-      <div className="gameMenu">
-        <div className="row justifyContentEnd alignItemsBaseline">
-          <button
-            id="resetBtn"
-            name="resetBtn"
-            className="btn resetBtn"
-            onClick={() => onClickResetBtn()}
-          >
-            <ResetMini />
-          </button>
-          <button
-            id="soundBtn"
-            name="soundBtn"
-            className="btn soundBtn"
-            ref={soundBtnRef}
-            onClick={() => toggleMusic()}
-          >
-            <SoundMini active={playingMusic} />
-          </button>
-          <button
-            id="homeBtn"
-            name="homeBtn"
-            className="btn homeBtn"
-            onClick={() => onClickHomeBtn()}
-          >
-            <HomeMini />
-          </button>
-        </div>
-      </div>
-      <div className="gameContainer">
-        <div className="gameHeader row justifyContentCenter alignItemsBaseline">
-          <div className="textMode textGap">Game Mode : </div>
-          <div className="modeSelect">{gamemode}</div>
-        </div>
-        <div className="gameBoard row justifyContentEvenly alignItemsCenter">
-          <div className="textScore">
-            Score <span className="winnerX">X</span> : {scoreX}
-          </div>
-          <Board
-            board={board}
-            winLine={winLine}
-            onClick={gameOver ? resetBoard : handleMarkerClick}
-          />
-          <div className="textScore">
-            Score <span className="winnerO">0</span> : {scoreO}
-          </div>
-        </div>
-
-        <div className="gameFooter row justifyContentCenter alignItemsBaseline">
-          {winner ? (
-            <>
-              <div className="textWinner textGap">Winner is : </div>
-              <div
-                className={
-                  winner == "X"
-                    ? "winnerX markWinner"
-                    : winner == "O"
-                    ? "winnerO  markWinner"
-                    : ""
-                }
+      {loadingStatus ? (
+        <Loading loadCurrent={loadingCurrent} loadMax={loadingMax} />
+      ) : (
+        <>
+          <div className="gameMenu">
+            <div className="row justifyContentEnd alignItemsBaseline">
+              <button
+                id="resetBtn"
+                name="resetBtn"
+                className="btn resetBtn"
+                onClick={() => onClickResetBtn()}
               >
-                {winner}
+                <ResetMini />
+              </button>
+              <button
+                id="soundBtn"
+                name="soundBtn"
+                className="btn soundBtn"
+                ref={soundBtnRef}
+                onClick={() => toggleMusic()}
+              >
+                <SoundMini active={playingMusic} />
+              </button>
+              <button
+                id="homeBtn"
+                name="homeBtn"
+                className="btn homeBtn"
+                onClick={() => onClickHomeBtn()}
+              >
+                <HomeMini />
+              </button>
+            </div>
+          </div>
+          <div className="gameContainer">
+            <div className="gameHeader row justifyContentCenter alignItemsBaseline">
+              <div className="textMode textGap">Game Mode : </div>
+              <div className="modeSelect">{gamemode}</div>
+            </div>
+            <div className="gameBoard row justifyContentEvenly alignItemsCenter">
+              <div className="textScore">
+                Score <span className="winnerX">X</span> : {scoreX}
               </div>
-            </>
-          ) : null}
-        </div>
-      </div>
+              <Board
+                board={board}
+                winLine={winLine}
+                onClick={gameOver ? resetBoard : handleMarkerClick}
+              />
+              <div className="textScore">
+                Score <span className="winnerO">0</span> : {scoreO}
+              </div>
+            </div>
+
+            <div className="gameFooter row justifyContentCenter alignItemsBaseline">
+              {winner ? (
+                <>
+                  <div className="textWinner textGap">Winner is : </div>
+                  <div
+                    className={
+                      winner == "X"
+                        ? "winnerX markWinner"
+                        : winner == "O"
+                        ? "winnerO  markWinner"
+                        : ""
+                    }
+                  >
+                    {winner}
+                  </div>
+                </>
+              ) : null}
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }
